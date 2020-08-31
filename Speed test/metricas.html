@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<title>SpeedTest</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<style>
+		.stopbuttons{
+			display:none;
+		}
+	</style>
+</head>
+
+<body>
+<div class="container">
+	<div class="page-header">
+		<h1>Internet speed test</h1>
+	</div>
+
+	<!-- DEMO 1 HTML START -->
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-3">
+					<button type="button" class="btn btn-lg btn-success startbuttons" id="Demo-1-StartButton" >Start</button>
+					<button type="button" class="btn btn-lg btn-danger stopbuttons" id="Demo-1-StopButton" >Stop</button>
+					<span id="Demo-1-State" class="btn btn-lg btn-default disabled">stopped</span>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3 class="panel-title">Download bandwidth (speed):</h3>
+						</div>
+						<div class="panel-body">
+							<h1 id="Demo-1-dl-result">not tested</h1>
+						</div>
+						<div class="panel-footer">Test Duration: <span id="Demo-1-dl-duration">0</span> ms</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3 class="panel-title">Upload bandwidth (speed):</h3>
+						</div>
+						<div class="panel-body">
+							<h1 id="Demo-1-ul-result">not tested</h1>
+						</div>
+						<div class="panel-footer">Test Duration: <span id="Demo-1-ul-duration">0</span> ms</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-danger">
+						<div class="panel-heading">
+							<h3 class="panel-title">Response time (latency):</h3>
+						</div>
+						<div class="panel-body">
+							<h1 id="Demo-1-re-result">not tested</h1>
+						</div>
+						<div class="panel-footer">Test Duration: <span id="Demo-1-re-duration">0</span> ms</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<!-- DEMO 1 HTML END -->
+</div> <!-- .container -->
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<script src="js/SpeedTest.js"></script>
+	<script src="js/red.js"></script>
+
+</body>
+</html>

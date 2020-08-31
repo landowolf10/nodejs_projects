@@ -1,0 +1,90 @@
+  
+<html lang="en">
+    <head>
+      <title>Internet Download Speed</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <script>
+            var imageAddr = "https://raw.githubusercontent.com/pawanadubey/InternetSpeedImage/master/InternetSpeed.jpg"; 
+            var downloadSize = 3730000;
+            function ShowProgressMessage(msg) {
+                var classNames=["spinner-border text-primary","spinner-border text-success","spinner-border text-warning","spinner-border text-secondary"];
+                var nums=(classNames.length)-1;
+                if (console) {
+                    if (typeof msg == "string") {
+                        console.log(msg);
+                    } else {
+                        for (var i = 0; i < msg.length; i++) {
+                            var choosenColor=i%nums;
+                            document.getElementById("loading").className = classNames[choosenColor];
+                            console.log(msg[i]);
+                        }
+                    }
+                }
+                var oProgress = document.getElementById("progress");
+                if (oProgress) {
+                    var actualHTML = (typeof msg == "string") ? msg : msg.join("<br />");
+                    oProgress.innerHTML = actualHTML;
+                }
+            }
+            
+            function InitiateSpeedDetection() {
+                document.getElementById("loading").className = "spinner-border text-secondary";
+                ShowProgressMessage("Please wait...");
+                window.setTimeout(MeasureConnectionSpeed, 1);
+            };    
+            
+            if (window.addEventListener) {
+                window.addEventListener('load', InitiateSpeedDetection, false);
+            } else if (window.attachEvent) {
+                window.attachEvent('onload', InitiateSpeedDetection);
+            }
+            
+            function MeasureConnectionSpeed() {
+                var startTime, endTime;
+                var download = new Image();
+                download.onload = function () {
+                    endTime = (new Date()).getTime();
+                    showResults();
+                }
+                
+                download.onerror = function (err, msg) {
+                    ShowProgressMessage("Something went wrong...");
+                }
+                
+                startTime = (new Date()).getTime();
+                var cacheBuster = "?nnn=" + startTime;
+                download.src = imageAddr + cacheBuster;
+                
+                function showResults() {
+                    var duration = (endTime - startTime) / 1000;
+                    var bitsLoaded = downloadSize * 8;
+                    var speedBps = (bitsLoaded / duration).toFixed(2);
+                    var speedKbps = (speedBps / 1024).toFixed(2);
+                    var speedMbps = (speedKbps / 1024).toFixed(2);
+                    ShowProgressMessage([
+                        "Your download speed is <h2>"+speedMbps + " mbps</h2>"+speedKbps + " kbps<br/>"+speedBps + " bps"
+                    ]);
+                    document.getElementById("loadingDiv").style.display='none';
+                }
+            }
+            </script>
+    
+    </head>
+    <body>
+        <div class="jumbotron text-center">
+            <h1>Internet Download Speed</h1>
+            <p>Uses <a href='https://github.com'>Github</a> as the responding server.</p> 
+        </div>
+        <div style="text-align: center" id='loadingDiv'>
+            <div id="loading" class="spinner-border text-info">
+        </div>
+        </div>
+        <div class="container d-flex justify-content-center">
+            <h4 id="progress">JavaScript is turned off, or your browser is realllllly slow</h4>
+        </div>
+    </body>

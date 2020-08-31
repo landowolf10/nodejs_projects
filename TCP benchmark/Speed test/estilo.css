@@ -1,0 +1,35 @@
+body{
+    font-size: 12px;
+    font-family: 'Offside'; 
+    background-color: #E6F6D8;
+  }
+  h1{
+    font-size: 4.5em;
+    text-align: center;
+  }
+  h2{
+    font-size: 3.5em;
+    text-align: center;
+  }
+  .main{
+    margin: 20px;
+  }
+  .content{
+    text-align: center;
+    height: 120px;
+  }
+  button{
+    background-color: #71D971;
+    border: 0px;
+    border-radius: 15px;
+    width: 400px;
+    height: 100px;
+    color: white;
+    font-size: 3em;
+    font-family: 'Offside'
+  }
+  button:hover{
+    background-color: #40B440;
+    -webkit-box-shadow:  5px 5px 10px 1px rgba(0, 0, 0, .5);
+    box-shadow:  5px 5px 10px 1px rgba(0, 0, 0, .5);
+  }
